@@ -2,7 +2,7 @@
 
 import wx
 import wx.lib.mixins.listctrl as listmix
-from list_mixin import ListCtrlSortMixin, FilterMixin, int_cmp, str_cmp, float_cmp
+from .list_mixin import ListCtrlSortMixin, FilterMixin, int_cmp, str_cmp, float_cmp
 import os
 import re
 
@@ -18,7 +18,7 @@ class ListCtrl(wx.ListCtrl, listmix.ListCtrlAutoWidthMixin):
 		
 		
 	def _createColumn(self):
-		raise NotImplementedError, 'ListCtrl is a abstract class.'
+		raise NotImplementedError('ListCtrl is a abstract class.')
 		
 	def reset(self, data):
 		self.DeleteAllItems()
@@ -152,7 +152,7 @@ class CallListCtrl(ListCtrl, ListCtrlSortMixin):
 		for i in data:
 			tmp_data.append(i)
 			
-		from statsmodel import make_calls_data
+		from .statsmodel import make_calls_data
 		data = make_calls_data(data)
 		
 		self.data_list = [0]*(len(data)+1)
@@ -266,8 +266,8 @@ class LoadedListCtrl(wx.ListCtrl):
 		self._createColumn()
 
 	def insert(self, data, stats):
-		print data
-		if self.file_dict.has_key(data):
+		print(data)
+		if data in self.file_dict:
 			self.stats_list[self.file_dict[data]] = stats
 		else:
 			self.file_dict[data] = self.lenght

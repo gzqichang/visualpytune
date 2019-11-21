@@ -72,7 +72,7 @@ class FindReplaceMixin(object):
 		
 	def __do_find(self, editor, start, end, findstr, flags):
 		pos = editor.FindText(start, end, findstr, flags)
-		print pos
+		print(pos)
 		if pos >= 0:
 			editor.SetSelection(pos, pos + len(findstr))
 			

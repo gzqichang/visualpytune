@@ -3,7 +3,7 @@
 import wx
 import os
 
-import image_path as IP
+from . import image_path as IP
 	
 def show(func):
 	def show_func(*a, **k):
@@ -118,7 +118,7 @@ def createMenu(frm):
 		mb.Append(menu, '&Tools')
 		
 		def prof(evt):
-			from profdlg import DoPorf
+			from .profdlg import DoPorf
 			DoPorf(frm)
 		ID_PROF = wx.NewId()
 		item_prof = wx.MenuItem(menu, ID_PROF, '&Profile\tCtrl+P')
@@ -131,7 +131,7 @@ def createMenu(frm):
 			shortHelp = 'Profile')
 		
 		def timeit(evt):
-			from timeitdlg import DoTimeit
+			from .timeitdlg import DoTimeit
 			DoTimeit(frm)
 		
 		ID_TIMEIT = wx.NewId()
@@ -176,7 +176,7 @@ def createMenu(frm):
 		# insert about menu
 		def about(evt):
 			def ShowAbout():
-				from about import name, ver, url, author
+				from .about import name, ver, url, author
 				info = wx.AboutDialogInfo()
 				
 				#lic = open('./licence','rt')
@@ -215,14 +215,14 @@ def createMenu(frm):
 	createHelpMenu(mb)
 	
 def createMainUI(frm):
-	from viewpanel import Panel as vp
-	from statspanel import Panel as sp
-	from callerspanel import Panel as cp
-	from calleespanel import Panel as cep
-	from historypanel import Panel as hp
-	from uicfg import UIConfig
+	from .viewpanel import Panel as vp
+	from .statspanel import Panel as sp
+	from .callerspanel import Panel as cp
+	from .calleespanel import Panel as cep
+	from .historypanel import Panel as hp
+	from .uicfg import UIConfig
 	#-------- splitter
-	from proportionalsplitter import ProportionalSplitter
+	from .proportionalsplitter import ProportionalSplitter
 	splitter = ProportionalSplitter(frm, wx.ID_ANY, \
 		proportion = UIConfig.inst().getLeftSplitProp())
 
@@ -357,8 +357,8 @@ def AddMiscFunc(frm):
 	
 	def OpenFile(path):
 		assert path
-		print 'open', path
-		from statsmodel import StatsModel
+		print('open', path)
+		from .statsmodel import StatsModel
 		try:
 			frm.model = StatsModel(path)
 		except:
@@ -395,7 +395,7 @@ def AddDragAndDropSupport(frm):
 #@fullscreen
 @show
 def createUI(*a, **k):
-	from uicfg import UIConfig
+	from .uicfg import UIConfig
 
 	if UIConfig.inst().getMaximized():
 		if 'style' in k:
@@ -422,3 +422,4 @@ def createUI(*a, **k):
 	
 	return obj
 	
+

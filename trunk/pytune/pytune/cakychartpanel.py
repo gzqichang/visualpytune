@@ -1,10 +1,10 @@
 # -*- coding:utf-8 -*-
 
 import wx
-import panel
+from . import panel
 
-from cakychart import CakyChart as cc
-from cakychartactionpanel import CakyChartActionPanel as ccaPanel
+from .cakychart import CakyChart as cc
+from .cakychartactionpanel import CakyChartActionPanel as ccaPanel
 
 class CakyChartPanel(wx.Panel):
 	def __init__(self, *a, **k):

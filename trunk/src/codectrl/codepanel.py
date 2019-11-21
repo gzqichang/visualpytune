@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from codeview import DemoCodeEditor as CodeEditor
-from codepanel_mixin import FindReplaceMixin
+from .codeview import DemoCodeEditor as CodeEditor
+from .codepanel_mixin import FindReplaceMixin
 
 import wx
 

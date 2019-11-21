@@ -43,17 +43,17 @@ class Stats(object):
                 self.nc = 0
                 self.pnc = 0
                 stats = self.stats.stats
-                for i, (func, (cc, nc, tt, ct, cs)) in enumerate(stats.iteritems()):
-                        if cs.has_key(('profile', 0, 'profiler')) == True:
+                for i, (func, (cc, nc, tt, ct, cs)) in enumerate(stats.items()):
+                        if (('profile', 0, 'profiler') in cs) == True:
                                 self.cpu_time += ct
                         self.nc += nc
                         self.pnc += cc
                         self.id_list.append( (func,cc,nc,tt,ct,cs) )
                         self.id_dict[func] = i
-                for i in xrange(len(self.id_list)):
+                for i in range(len(self.id_list)):
                         self.call_map.append([])
                 for i, (func,cc,nc,tt,ct,cs) in enumerate(self.id_list):
-                        for j in cs.iterkeys():
+                        for j in cs.keys():
                                 self.call_map[self.id_dict[j]].append(i)
 #------------for call graph-------------
 
@@ -113,7 +113,7 @@ class Stats(object):
         def get_stats(self):
                 stats = self.stats.stats
                 ret = {}
-                for i, (func, (cc, nc, tt, ct, cs)) in enumerate(stats.iteritems()):
+                for i, (func, (cc, nc, tt, ct, cs)) in enumerate(stats.items()):
                         fln = pstats.func_strip_path(func)
                         ret[func] = (i, fln, (cc, tt, ct, nc))
                 return ret
@@ -121,3 +121,4 @@ class Stats(object):
 if __name__ == '__main__':
         s = Stats()
         s.add_stats('vp.prof')
+

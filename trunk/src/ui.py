@@ -357,7 +357,7 @@ def AddMiscFunc(frm):
 	
 	def OpenFile(path):
 		assert path
-		print 'open', path
+		print('open', path)
 		from statsmodel import StatsModel
 		try:
 			frm.model = StatsModel(path)
@@ -422,3 +422,4 @@ def createUI(*a, **k):
 	
 	return obj
 	
+

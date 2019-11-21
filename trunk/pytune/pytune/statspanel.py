@@ -2,11 +2,11 @@
 
 import wx
 
-from listctrl import FilterStatsListCtrl as DataList
-from filterpanel import FilterPanel
+from .listctrl import FilterStatsListCtrl as DataList
+from .filterpanel import FilterPanel
 #from statisticspanel import StatisticsPanel
-from callgraph import CallGraph
-import panel
+from .callgraph import CallGraph
+from . import panel
 	
 class StatsPanel(wx.Panel):
 	def __init__(self, *a, **k):

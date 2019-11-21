@@ -6,7 +6,7 @@ fln_str_func = lambda fln:('%s'%fln[2], '%s:%d'%fln[:2])
 
 def make_data(stats):
 	data = []
-	for k, v in stats.iteritems():
+	for k, v in stats.items():
 		idx, fln, d = v
 		if d[0] == 0:
 			continue
@@ -22,13 +22,13 @@ def make_data(stats):
 def make_calls_data(stats):
 	data = [ \
 		((str(i),) + fln_str_func(fln) + ('%d'%cnt, '%8.5f'%ct)) \
-		for (i, fln, cnt, ct) in stats.itervalues() ]
+		for (i, fln, cnt, ct) in stats.values() ]
 	return data
 	
 def make_chart_data(stats):
 	fln_str_func2 = lambda fln:'%s(%s:%d)'%(fln[2], fln[0], fln[1])
 	data = [ \
-		(fln_str_func2(fln), ct) for (i, fln, cnt, ct) in stats.itervalues() ]
+		(fln_str_func2(fln), ct) for (i, fln, cnt, ct) in stats.values() ]
 	return data
 
 class StatsModel(object):
@@ -71,7 +71,7 @@ class StatsModel(object):
 		return '%s(%s:%s)'%(n, f, l)
 		
 	def get_func_by_idx(self, idx):
-		for func, v in self.stats_data.iteritems():
+		for func, v in self.stats_data.items():
 			if v[0] == idx:
 				return func
 		return None

@@ -32,3 +32,4 @@ VisualPyTune is a python program performance tuning tool, based on wxPython. It 
       pytune = pytune.vpt:main
       """,
       )
+

@@ -3,7 +3,7 @@ import  keyword
 
 import  wx
 import  wx.stc  as  stc
-import cStringIO
+import io
 
 #----------------------------------------------------------------------
 
@@ -79,7 +79,7 @@ def getSmilesBitmap():
     return wx.BitmapFromImage(getSmilesImage())
 
 def getSmilesImage():
-    stream = cStringIO.StringIO(getSmilesData())
+    stream = io.StringIO(getSmilesData())
     return wx.ImageFromStream(stream)
 
 #----------------------------------------------------------------------
@@ -444,4 +444,5 @@ if __name__ == '__main__':
 
 #----------------------------------------------------------------------
 #----------------------------------------------------------------------
+
 

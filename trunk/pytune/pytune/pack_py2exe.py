@@ -4,7 +4,7 @@ from glob import glob
 from distutils.core import setup
 import py2exe
 
-from about import name, ver
+from .about import name, ver
 
 setup(windows=["vpt.py", {'script':'vpt.py','icon_resources':[(1, 'res/Py.ico')]}], \
 	options = {'py2exe':{'optimize':2}}, \
@@ -20,3 +20,4 @@ setup(windows=["vpt.py", {'script':'vpt.py','icon_resources':[(1, 'res/Py.ico')]
 		('res/menu', glob('res/menu/*.png')), \
 		('res/toolbar', glob('res/toolbar/*.png'))]
 	)
+

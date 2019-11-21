@@ -1,10 +1,10 @@
 # -*- coding:utf-8 -*-
 
 import wx
-import panel
+from . import panel
 
-from listctrl import HistoryListCtrl as HisList
-from historyactionpanel import HistoryActionPanel as HaPanel
+from .listctrl import HistoryListCtrl as HisList
+from .historyactionpanel import HistoryActionPanel as HaPanel
 
 class HistoryPanel(wx.Panel):
 	def __init__(self, *a, **k):

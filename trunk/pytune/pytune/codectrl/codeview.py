@@ -11,7 +11,7 @@ import wx
 try:
     ##raise ImportError     # for testing the alternate implementation
     from wx import stc
-    from StyledTextCtrl_2 import PythonSTC
+    from .StyledTextCtrl_2 import PythonSTC
 
     class DemoCodeEditor(PythonSTC):
         def __init__(self, parent):
@@ -187,7 +187,7 @@ try:
 
 
 except ImportError:
-    print 'ImportError'
+    print('ImportError')
     class DemoCodeEditor(wx.TextCtrl):
         def __init__(self, parent):
             wx.TextCtrl.__init__(self, parent, -1, style =
@@ -223,7 +223,7 @@ if __name__ == '__main__':
 	frame = wx.Frame(None, wx.ID_ANY)
 	view = DemoCodeEditor(frame)
 	attr_file = open('attr_file.txt', 'w')
-	print >>attr_file, '\n'.join(dir(view))
+	print('\n'.join(dir(view)), file=attr_file)
 	attr_file.close()
 	frame.Centre()
 	frame.Show()

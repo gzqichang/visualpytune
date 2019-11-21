@@ -2,8 +2,8 @@
 
 import wx
 import profile
-import ui
-from about import name, ver
+from . import ui
+from .about import name, ver
 #from . import __version__
 #ver = __version__
 
@@ -24,3 +24,4 @@ def main():
 	
 if __name__ == '__main__':
 	main()
+

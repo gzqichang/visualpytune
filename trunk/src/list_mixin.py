@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 
 import wx
-import cStringIO
+import io
 
 #----------------------------------------------------------------------
 def getSmallUpArrowData():
@@ -17,7 +17,7 @@ def getSmallUpArrowBitmap():
     return wx.BitmapFromImage(getSmallUpArrowImage())
 
 def getSmallUpArrowImage():
-    stream = cStringIO.StringIO(getSmallUpArrowData())
+    stream = io.StringIO(getSmallUpArrowData())
     return wx.ImageFromStream(stream)
 
 #----------------------------------------------------------------------
@@ -34,7 +34,7 @@ def getSmallDnArrowBitmap():
     return wx.BitmapFromImage(getSmallDnArrowImage())
 
 def getSmallDnArrowImage():
-    stream = cStringIO.StringIO(getSmallDnArrowData())
+    stream = io.StringIO(getSmallDnArrowData())
     return wx.ImageFromStream(stream)
 
 DESCENDING = True

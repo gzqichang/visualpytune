@@ -3,7 +3,7 @@
 import wx
 import subprocess, os, sys
 from wx.lib.intctrl import IntCtrl
-from codectrl.codeview import DemoCodeEditor as CodeEditor
+from .codectrl.codeview import DemoCodeEditor as CodeEditor
 
 dlgsize = (640, 480)
 
@@ -270,7 +270,7 @@ class TimeitDlg(wx.Dialog):
 #			+ p.stdout.read() )
 #		if self.resultbtn.closed:
 #			self.OnResultbtn(None)
-		import util
+		from . import util
 		tmp_file = util.GenWritablePath('%d.py'%self.GetId())
 		f = open(tmp_file, 'w')
 		f.write(timeit_file_template%(stmt, setup, \
@@ -330,8 +330,8 @@ def _ShowTimeitDlg(parent, pypath):
 	dlg.Show()
 	
 def DoTimeit(parent):
-	import util
-	from askpypathdlg import AskPythonPathDlg
+	from . import util
+	from .askpypathdlg import AskPythonPathDlg
 	pypathdlg = AskPythonPathDlg(parent, \
 			wx.ID_ANY, \
 			'Timeit wizard (step 1: setup python path)', \

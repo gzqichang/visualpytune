@@ -2,8 +2,8 @@
 
 import wx
 
-from listctrl import LoadedListCtrl
-from uicfg import UIConfig
+from .listctrl import LoadedListCtrl
+from .uicfg import UIConfig
 
 def Notebook(parent, *a, **k):
 	obj = wx.Notebook(parent, *a, **k)

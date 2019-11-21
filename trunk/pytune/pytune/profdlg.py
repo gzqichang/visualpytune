@@ -237,8 +237,8 @@ def _ShowProfDlg(parent, pypath):
 	dlg.Show()
 	
 def DoPorf(parent):
-	import util
-	from askpypathdlg import AskPythonPathDlg
+	from . import util
+	from .askpypathdlg import AskPythonPathDlg
 	pypathdlg = AskPythonPathDlg(parent, \
 			wx.ID_ANY, \
 			'Profile wizard (step 1: setup python path)', \

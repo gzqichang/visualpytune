@@ -1,6 +1,6 @@
 ﻿# -*- coding:utf-8 -*-
 
-import util
+from . import util
 import os, sys
 
 exe = sys.executable

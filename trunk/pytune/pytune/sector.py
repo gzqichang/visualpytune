@@ -85,13 +85,14 @@ class Sector(object):
 
 if __name__ == "__main__":
 	s = Sector(Vector(1, 0), PI, Vector(2, 2))
-	print s
-	print "end: %s"%(s.end)
-	print "key: %s"%(s.key_point)
-	print s.is_in(Vector(2, 2))
-	print s.is_in(Vector(2, 3))
-	print s.is_in(Vector(1, 2))
-	print s.is_in(Vector(-2, 2))
-	print s.is_in(Vector(-2, -2))
-	print s.is_in(Vector(-2, -2))
+	print(s)
+	print("end: %s"%(s.end))
+	print("key: %s"%(s.key_point))
+	print(s.is_in(Vector(2, 2)))
+	print(s.is_in(Vector(2, 3)))
+	print(s.is_in(Vector(1, 2)))
+	print(s.is_in(Vector(-2, 2)))
+	print(s.is_in(Vector(-2, -2)))
+	print(s.is_in(Vector(-2, -2)))
 	
+

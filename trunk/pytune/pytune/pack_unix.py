@@ -2,7 +2,7 @@
 
 from distutils.core import setup
 from glob import glob
-from about import *
+from .about import *
 
 setup(name= name,
 	  version=ver,
@@ -21,3 +21,4 @@ setup(name= name,
 		('res/toolbar', glob('res/toolbar/*.png'))
 	  	]
 	  )
+

@@ -1,9 +1,9 @@
 # -*- coding:utf-8 -*-
 	
-import ConfigParser
-from ConfigParser import SafeConfigParser as Parser
+import configparser
+from configparser import SafeConfigParser as Parser
 
-from singleton import Singleton
+from .singleton import Singleton
 
 default_file = """
 [window]
@@ -41,10 +41,10 @@ def modified_decorator(func):
 	return setter
 
 def str2list(s):
-	return map(lambda x: x.strip(), s.split(sep))
+	return [x.strip() for x in s.split(sep)]
 
 class UIConfig(Singleton):
-	import util
+	from . import util
 	cfg = util.GenCfgPath('option', 'ui.cfg')
 #	print cfg
 #	cfg = 'option/ui.cfg'
@@ -89,7 +89,7 @@ class UIConfig(Singleton):
 		self.cfg.set(WINDOW, MAXIMIZE, str(bool(value)))
 		
 	def getWindowSize(self):
-		return map(int, str2list(self.cfg.get(WINDOW, SIZE)))
+		return list(map(int, str2list(self.cfg.get(WINDOW, SIZE))))
 		
 	@modified_decorator
 	def setWindowSize(self, value):
@@ -97,7 +97,7 @@ class UIConfig(Singleton):
 			sep.join(map(str, value)))
 			
 	def getWindowPos(self):
-		return map(int, str2list(self.cfg.get(WINDOW, POS)))
+		return list(map(int, str2list(self.cfg.get(WINDOW, POS))))
 		
 	@modified_decorator
 	def setWindowPos(self, value):
@@ -138,7 +138,8 @@ inst = UIConfig()
 if __name__ == '__main__':
 	op = UIConfig.inst()
 	
-	print op.getLastDir()
+	print(op.getLastDir())
 	op.setLastDir('C:/')
-	print op.getLastDir()
+	print(op.getLastDir())
 	op.release()
+

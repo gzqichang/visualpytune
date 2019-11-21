@@ -21,3 +21,4 @@ setup(name= name,
 		('res/toolbar', glob('res/toolbar/*.png'))
 	  	]
 	  )
+

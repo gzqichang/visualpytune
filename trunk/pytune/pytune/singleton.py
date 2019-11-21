@@ -6,12 +6,12 @@ class Singleton(object):
 	... 	def __init__(self, s): self.s = s
 	... 	def __str__(self): return self.s
 	>>> s1 = SingleSpam('spam')
-	>>> print str(s1)
+	>>> print(str(s1))
 	spam
 	>>> s2 = SingleSpam('eggs')
-	>>> print str(s2)
+	>>> print(str(s2))
 	eggs
-	>>> print id(s1) == id(s2)
+	>>> print(id(s1) == id(s2))
 	True
 	
 	>>> obj = Singleton()
@@ -34,7 +34,7 @@ class Singleton(object):
 		return cls._inst
 		
 	def __init__(self, *a, **k):
-		raise NotImplementedError, 'Don\'t call Singleton.__init__'
+		raise NotImplementedError('Don\'t call Singleton.__init__')
 		
 	@classmethod
 	def inst(self):

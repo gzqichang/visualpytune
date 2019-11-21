@@ -18,7 +18,7 @@ class ListCtrl(wx.ListCtrl, listmix.ListCtrlAutoWidthMixin):
 		
 		
 	def _createColumn(self):
-		raise NotImplementedError, 'ListCtrl is a abstract class.'
+		raise NotImplementedError('ListCtrl is a abstract class.')
 		
 	def reset(self, data):
 		self.DeleteAllItems()
@@ -266,8 +266,8 @@ class LoadedListCtrl(wx.ListCtrl):
 		self._createColumn()
 
 	def insert(self, data, stats):
-		print data
-		if self.file_dict.has_key(data):
+		print(data)
+		if data in self.file_dict:
 			self.stats_list[self.file_dict[data]] = stats
 		else:
 			self.file_dict[data] = self.lenght

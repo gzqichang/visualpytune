@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 
 import wx
-from sector import Sector, Vector, PI
+from .sector import Sector, Vector, PI
 
 PI2 = PI * 2
 
@@ -66,7 +66,7 @@ class CakyChart(wx.Panel):
 		self.angles = []
 		self.sectors = []
 		self.label_pos = []
-		self.func_name = []
+		self.__name__ = []
 		
 		self.selected_callback = None
 		self.undo_callback = None
@@ -135,9 +135,9 @@ class CakyChart(wx.Panel):
 			
 		if x<rt[0] or x>rt[0]+rt[2] or y<rt[1] or y>rt[1]+rt[3]:
 			return
-		for i in xrange(len(self.label_pos)):
+		for i in range(len(self.label_pos)):
 			if y<self.label_pos[i]+self.line_height and y>self.label_pos[i] and self.selected_callback:
-				self.selected_callback(self.func_name[i][0])
+				self.selected_callback(self.__name__[i][0])
 		
 	def OnPaint(self, evt):
 		dc = wx.PaintDC(self)
@@ -163,9 +163,9 @@ class CakyChart(wx.Panel):
 		self.Refresh()
 		
 	def reset(self, title_text, data):
-		self.func_name = [ (a, data[a][3]) for (a) in data.iterkeys() ]
-		self.func_name.sort(cmp = lambda x, y: cmp(x[1], y[1]), reverse = True)
-		from statsmodel import make_chart_data
+		self.__name__ = [ (a, data[a][3]) for (a) in data.keys() ]
+		self.__name__.sort(cmp = lambda x, y: cmp(x[1], y[1]), reverse = True)
+		from .statsmodel import make_chart_data
 		
 		data = make_chart_data(data)
 		self.title_text = title_text
@@ -271,7 +271,7 @@ class CakyChart(wx.Panel):
 		(wx.PaintDC.GetBrush, ), \
 		(wx.PaintDC.SetBrush, ))
 	def draw_label(self, dc):
-		from itertools import count, izip
+		from itertools import count
 		
 		side = max(dc.GetCharWidth(), dc.GetCharHeight())
 		text_pos_x_offset = side + ROW_SPACING
@@ -288,7 +288,7 @@ class CakyChart(wx.Panel):
 			t += int((max_lines_cnt - lines_cnt) / 2.0 * self.line_height)
 			
 		for i, (top, name, color) in \
-				enumerate(izip(count(), self.names, COLORS)):
+				enumerate(zip(count(), self.names, COLORS)):
 			top = top * self.line_height + t
 			if need_more_spaces and i >= max_lines_cnt:
 				old_color = dc.GetTextForeground()

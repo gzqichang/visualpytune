@@ -23,7 +23,7 @@ class MyEvtHandler(ogl.ShapeEvtHandler):
                 can = self.GetShape().GetCanvas()
                 self.GetShape().Delete()
                 can.Refresh(False)
-                print "%s\n" % self.GetShape()
+                print("%s\n" % self.GetShape())
 
 class FuncShape(ogl.RectangleShape):
         def __init__(self, func_id, width = 0, height = 0, ):

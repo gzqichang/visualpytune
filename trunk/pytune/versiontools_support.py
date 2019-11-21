@@ -143,3 +143,4 @@ if not issubclass(
     distutils.dist.DistributionMetadata,
     VersiontoolsEnchancedDistributionMetadata):
     distutils.dist.DistributionMetadata = VersiontoolsEnchancedDistributionMetadata
+

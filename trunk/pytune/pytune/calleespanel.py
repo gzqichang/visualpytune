@@ -3,10 +3,10 @@
 
 import wx
 
-from listctrl import CallListCtrl as DataList
-from cakychartpanel import CakyChartPanel
+from .listctrl import CallListCtrl as DataList
+from .cakychartpanel import CakyChartPanel
 	
-import panel
+from . import panel
 	
 class Panel(panel.NotebookPanel):
 	def __init__(self, *a, **k):

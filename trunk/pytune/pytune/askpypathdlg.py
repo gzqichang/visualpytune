@@ -91,7 +91,7 @@ class AskPythonPathDlg(wx.Dialog):
 		evt.Skip()
 		
 if __name__ == "__main__":
-	import util
+	from . import util
 	app = wx.PySimpleApp()
-	print AskPythonPathDlg(None, cfg = util.GenCfgPath('option', 'timeit.cfg')).ShowModal()
+	print(AskPythonPathDlg(None, cfg = util.GenCfgPath('option', 'timeit.cfg')).ShowModal())
 #	app.MainLoop()

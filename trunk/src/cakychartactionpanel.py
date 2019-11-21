@@ -40,3 +40,4 @@ class CakyChartActionPanel(wx.Panel):
         def OnUndo(self, evt):
                 self.undo_callback()
 
+

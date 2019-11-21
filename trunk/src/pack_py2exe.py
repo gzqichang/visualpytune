@@ -20,3 +20,4 @@ setup(windows=["vpt.py", {'script':'vpt.py','icon_resources':[(1, 'res/Py.ico')]
 		('res/menu', glob('res/menu/*.png')), \
 		('res/toolbar', glob('res/toolbar/*.png'))]
 	)
+

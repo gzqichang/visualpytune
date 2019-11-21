@@ -42,3 +42,4 @@ class HistoryActionPanel(wx.Panel):
 
         def OnClear(self, evt):
                 self.Clear_callback()
+
