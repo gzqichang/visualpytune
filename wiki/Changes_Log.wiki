@@ -1,0 +1,38 @@
+#labels Featured,Phase-Support
+= Changs log =
+_26/3/2010_
+ * VisualPyTune(VPT) 0.1.3 Released! *
+ == Fixed bugs == 
+ # can't close vpt when open files in non-english directory.
+ == What's new ==
+ # Caky Chart improved:
+  # tottime replaced cumtime
+  # By click the square in Caky Chart, you can view function's callees more and more easier.
+  # add ===internal=== to Caky Chart, it shows current function's tottime.
+ # optimized sort algorithm.
+
+_1/25/2008_
+ * VisualPyTune(VPT) 0.1.2 Released! *
+ === Fixed bugs ===
+ # Can't use timeit to multiline code blocks
+ === What's new ===
+ # intergrated profile
+ # online help
+ # profile wizard and timeit wizard
+
+_12/14/2007_
+ * VisualPyTune(VPT) 0.1.1 Released! *
+ === Fixed bugs ===
+ # Can't found gdiplus.dll and mscvp71.dll on Win32.
+ # Can't found py.ico on linux.
+ # GUI Timeit isn't works.
+ # Can't shutdown VPT by click close button on title-bar.
+ === What's new ===
+ # Win32 installer executable file.
+ # Linux source code package.
+ # Optional [http://psyco.sourceforge.net/ Psyco] optimize, enable default on Win32 installer.
+
+
+_11/31/2007_
+ * VisualPyTune(VPT) 0.1.0 Released! *
+ First released!
