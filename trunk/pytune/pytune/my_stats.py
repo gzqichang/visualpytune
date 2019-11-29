@@ -21,8 +21,8 @@ class Stats(object):
                         self.create(*a)
 
         def create(self, *a):
-                encoding = sys.getfilesystemencoding()
-                a = [i.encode(encoding) for i in a]
+                # encoding = sys.getfilesystemencoding()
+                # a = [i.encode(encoding) for i in a]
                 try:
                         self.stats = pstats.Stats(*a)
                 except ValueError:
