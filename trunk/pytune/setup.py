@@ -24,7 +24,7 @@ VisualPyTune is a python program performance tuning tool, based on wxPython. It 
           # -*- Extra requirements: -*-
       ],
       setup_requires = [
-      	'versiontools >= 1.8',
+      	'versiontools',
       ],
       entry_points="""
       # -*- Entry points: -*-

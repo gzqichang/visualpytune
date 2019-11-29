@@ -50,8 +50,8 @@ def createMenu(frm):
 			dlg = wx.FileDialog( \
 				frm, message = 'Open profile stats file', \
 				defaultDir = frm.GetDirCtrlFilePath(), defaultFile = '', \
-				wildcard = 'All files (*.*) | *.*', \
-				style = wx.OPEN | wx.CHANGE_DIR )
+				# wildcard = 'All files (*.*) | *.*', \
+				style = wx.FD_OPEN)
 			if dlg.ShowModal() != wx.ID_OK:
 				return
 			path = dlg.GetPath()

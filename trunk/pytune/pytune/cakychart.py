@@ -107,7 +107,7 @@ class CakyChart(wx.Panel):
 			|                       |
 			|-----------------------|
 		'''
-		w, h = self.GetClientSizeTuple()
+		w, h = self.GetClientSize()
 		mid = w/4*3
 		self.back_rect = (mid, 0, TITLE_HEIGHT*2, TITLE_HEIGHT)
 		self.forward_rect = (mid + TITLE_HEIGHT*2, 0, TITLE_HEIGHT*2, TITLE_HEIGHT)

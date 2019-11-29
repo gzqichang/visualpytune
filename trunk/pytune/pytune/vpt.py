@@ -17,7 +17,7 @@ def try_psyco():
 
 def main():
 	try_psyco()
-	app = wx.PySimpleApp()
+	app = wx.App() #wx.PySimpleApp()
 	frame = ui.createUI(None, wx.ID_ANY, name + ' ' + ver)
 #	frame = ui.createUI(None, wx.ID_ANY, name)
 	app.MainLoop()

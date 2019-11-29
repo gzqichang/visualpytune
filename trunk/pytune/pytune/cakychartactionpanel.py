@@ -3,7 +3,7 @@
 import wx
 
 class CakyChartActionPanel(wx.Panel):
-        def __init__(self, *a, **k):
+	def __init__(self, *a, **k):
 		super(CakyChartActionPanel, self).__init__(*a, **k)
 		box = wx.BoxSizer(wx.HORIZONTAL)
 		self.st = wx.StaticText(self, wx.ID_ANY, '', style = wx.ALIGN_CENTER | wx.ST_NO_AUTORESIZE)
@@ -34,10 +34,10 @@ class CakyChartActionPanel(wx.Panel):
 	def resetTitle(self, title):
 		self.st.SetLabel(title)
 
-        def OnRedo(self, evt):
-                self.redo_callback()
+	def OnRedo(self, evt):
+		self.redo_callback()
 
-        def OnUndo(self, evt):
-                self.undo_callback()
+	def OnUndo(self, evt):
+		self.undo_callback()
 
 
