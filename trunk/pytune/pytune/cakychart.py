@@ -142,16 +142,16 @@ class CakyChart(wx.Panel):
 		
 	def OnPaint(self, evt):
 		dc = wx.PaintDC(self)
-		self.PrepareDC(dc)
-		dc.BeginDrawing()
+		# self.PrepareDC(dc)
+		# dc.BeginDrawing()
 		if (not self.names) or (not self.sectors):
 			self.draw_bg(dc)
 		else:
 			self.draw(dc)
-		dc.EndDrawing()
+		# dc.EndDrawing()
 		
 	def OnMotion(self, evt):
-		self.mouse = Vector(evt.m_x, evt.m_y)
+		self.mouse = Vector(evt.x, evt.y)
 		for i, sec in enumerate(self.sectors):
 			if sec.is_in(self.mouse):
 				self.tooltip.SetTip(self.names[i])
@@ -238,7 +238,7 @@ class CakyChart(wx.Panel):
 		(wx.PaintDC.GetPen, wx.PaintDC.GetBrush), \
 		(wx.PaintDC.SetPen, wx.PaintDC.SetBrush))
 	def draw_bg(self, dc):
-		w, h = self.GetClientSizeTuple()
+		w, h = self.GetClientSize()
 		dc.SetBrush(wx.WHITE_BRUSH)
 		dc.SetPen(wx.Pen(wx.Colour(0xFF, 0xFF, 0xFF), 1, wx.SOLID))
 		dc.DrawRectangle(0, 0, w, h)
@@ -246,7 +246,7 @@ class CakyChart(wx.Panel):
 	@attr_defend((wx.PaintDC.GetFont,), (wx.PaintDC.SetFont,))
 	def draw_title(self, dc):
 		dc.SetFont(wx.Font(TITLE_FONT_SIZE, wx.SWISS, wx.NORMAL, wx.BOLD))
-		w = self.GetClientSizeTuple()[0]
+		w = self.GetClientSize()[0]
 		dc.DrawLabel(self.get_valid_text(self.title_text, dc, w), \
 			wx.Rect(*self.title_rect), wx.ALIGN_CENTRE)
 		#dc.SetBrush(wx.BLUE_BRUSH)
