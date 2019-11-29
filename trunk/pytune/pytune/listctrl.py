@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-
+from operator import itemgetter
 import wx
 import wx.lib.mixins.listctrl as listmix
 from .list_mixin import ListCtrlSortMixin, FilterMixin, int_cmp, str_cmp, float_cmp
@@ -24,7 +24,8 @@ class ListCtrl(wx.ListCtrl, listmix.ListCtrlAutoWidthMixin):
 		self.DeleteAllItems()
 		self.itemMap = []
 		self.ref_dict = {}
-		data.sort(cmp = lambda x, y: cmp(int(x[0]), int(y[0])))
+		# data.sort(cmp = lambda x, y: cmp(int(x[0]), int(y[0])))
+		data.sort(key=itemgetter(0))
 		for idx, row in enumerate(data):
 			self.ref_dict[int(row[0])] = idx
 			self.itemMap.append(row)

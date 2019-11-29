@@ -1,4 +1,5 @@
 # -*- coding:utf-8 -*-
+from operator import itemgetter
 
 import wx
 from .sector import Sector, Vector, PI
@@ -164,13 +165,15 @@ class CakyChart(wx.Panel):
 		
 	def reset(self, title_text, data):
 		self.__name__ = [ (a, data[a][3]) for (a) in data.keys() ]
-		self.__name__.sort(cmp = lambda x, y: cmp(x[1], y[1]), reverse = True)
+		# self.__name__.sort(cmp = lambda x, y: cmp(x[1], y[1]), reverse = True)
+		self.__name__.sort(key=itemgetter(1), reverse = True)
 		from .statsmodel import make_chart_data
 		
 		data = make_chart_data(data)
 		self.title_text = title_text
 		
-		data.sort(cmp = lambda x, y: cmp(x[1], y[1]), reverse = True)
+		# data.sort(cmp = lambda x, y: cmp(x[1], y[1]), reverse = True)
+		data.sort(key=itemgetter(1), reverse = True)
 		self.names = [i[0] for i in data]
 		data = [i[1] for i in data]
 		
